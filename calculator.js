@@ -1,4 +1,4 @@
-/// SAMPLE INPUTS ///
+/// BASE CASE SAMPLE INPUTS ///
 
 const exampleAdditionInput = {
   num1: 3,
@@ -46,6 +46,38 @@ const exampleDivideInputSign = {
   num1: 3,
   num2: 5,
   op: '/',
+}
+
+/// EDGE CASE EXAMPLES ///
+
+const exampleMissingNum = {
+  num1: null,
+  num2: 5,
+  op: '(',
+}
+
+const exampleMissingOp = {
+  num1: 3,
+  num2: 5,
+  op: null,
+}
+
+const exampleWrongSign = {
+  num1: 3,
+  num2: 5,
+  op: '(',
+}
+
+const exampleOneNonNum = {
+  num1: 'hotdog',
+  num2: 5,
+  op: '(',
+}
+
+const exampleTwoNonNum = {
+  num1: 'hotdog',
+  num2: 'elephant',
+  op: '(',
 }
 
 /// CALCULATOR FUNCTIONALITY ///
