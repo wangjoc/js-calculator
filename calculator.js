@@ -83,14 +83,12 @@ const exampleTwoNonNum = {
 /// CALCULATOR FUNCTIONALITY ///
 
 function verifyNum(input) {
-  if (!isNaN(input)) {
-    return "Input provided is not a number"
-  }
+  return isNaN(input) || !input
 }
 
 function calculator(data) {
   
-  if ((isNaN(data.num1) || !data.num1 || isNaN(data.num2) || !data.num2)) {
+  if (verifyNum(data.num1) || verifyNum(data.num1)) {
     return "Input provided is not a number"
   }
   else if (data.op === 'add' || data.op === '+') {
