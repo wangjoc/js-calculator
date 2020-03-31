@@ -48,12 +48,12 @@ const exampleDivideInputSign = {
   op: '/',
 }
 
-/// EDGE CASE EXAMPLES ///
+/// EDGE CASE SAMPLE INPUTS ///
 
 const exampleMissingNum = {
   num1: null,
   num2: 5,
-  op: '(',
+  op: '+',
 }
 
 const exampleMissingOp = {
@@ -71,19 +71,29 @@ const exampleWrongSign = {
 const exampleOneNonNum = {
   num1: 'hotdog',
   num2: 5,
-  op: '(',
+  op: '/',
 }
 
 const exampleTwoNonNum = {
   num1: 'hotdog',
   num2: 'elephant',
-  op: '(',
+  op: '*',
 }
 
 /// CALCULATOR FUNCTIONALITY ///
 
+function verifyNum(input) {
+  if (!isNaN(input)) {
+    return "Input provided is not a number"
+  }
+}
+
 function calculator(data) {
-  if (data.op === 'add' || data.op === '+') {
+  
+  if ((isNaN(data.num1) || !data.num1 || isNaN(data.num2) || !data.num2)) {
+    return "Input provided is not a number"
+  }
+  else if (data.op === 'add' || data.op === '+') {
     return data.num1 + data.num2
   } 
   else if (data.op === 'subtract' || data.op === '-') {
@@ -95,8 +105,10 @@ function calculator(data) {
   else if (data.op === 'divide' || data.op === '/') {
     return data.num1 / data.num2
   } 
+  else {
+    return "Operator not recognized"
+  }
 } 
-
 
 /// BASE CASE EXAMPLES ///
 
@@ -112,3 +124,16 @@ console.log(calculator(exampleMultiInputSign));
 console.log("*** DIVIDE ***")
 console.log(calculator(exampleDivideInput));
 console.log(calculator(exampleDivideInputSign));
+
+
+/// EDGE CASE EXAMPLES ///
+
+console.log("*** MISSING NUMBER ***")
+console.log(calculator(exampleMissingNum));
+console.log("*** MISSING OPERATOR ***")
+console.log(calculator(exampleMissingOp));
+console.log("*** WRONG SIGN ***")
+console.log(calculator(exampleWrongSign));
+console.log("*** ADDING NON-NUMBER ***")
+console.log(calculator(exampleOneNonNum));
+console.log(calculator(exampleTwoNonNum));
