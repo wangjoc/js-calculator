@@ -80,6 +80,12 @@ const exampleTwoNonNum = {
   op: '*',
 }
 
+const exampleDivideByZero = {
+  num1: 5,
+  num2: 0,
+  op: 'divide',
+}
+
 /// CALCULATOR FUNCTIONALITY ///
 
 function verifyNum(input) {
@@ -90,6 +96,9 @@ function calculator(data) {
   
   if (verifyNum(data.num1) || verifyNum(data.num1)) {
     return "Input provided is not a number"
+  }
+  else if (data.num2 === 0) {
+    return "Cannot divide by zero"
   }
   else if (data.op === 'add' || data.op === '+') {
     return data.num1 + data.num2
@@ -135,3 +144,5 @@ console.log(calculator(exampleWrongSign));
 console.log("*** ADDING NON-NUMBER ***")
 console.log(calculator(exampleOneNonNum));
 console.log(calculator(exampleTwoNonNum));
+console.log("*** DIVIDE BY ZERO ***")
+console.log(calculator(exampleDivideByZero));
