@@ -111,19 +111,26 @@ const exampleDivideByZero = {
 }
 
 /// CALCULATOR FUNCTIONALITY ///
+const operator = {
+  add: '+',
+  subtract: '-',
+  divide: '/',
+  multiply: '*',
+  exponent: '**',
+  modulo: '%',
+}
 
 function verifyNum(input) {
   return isNaN(input) || !input
 }
 
 function printNum(data, result) {
-  console.log(`${data.num1} ${data.op} ${data.num2} = ${result}`)
+  console.log(`${data.num1} ${operator[data.op.toLowerCase()] || data.op} ${data.num2} = ${result}`)
 }
 
 function calculator(data) {
-  let result = 0
   let sign = String(data.op)
-  sign = sign.toLowerCase()
+  sign = operator[sign.toLowerCase()] || sign
   
   if (verifyNum(data.num1) || verifyNum(data.num1)) {
     console.log("Input provided is not a number")
@@ -131,22 +138,22 @@ function calculator(data) {
   else if (data.num2 === 0) {
     console.log("Cannot divide by zero")
   }
-  else if (sign === 'add' || sign === '+') {
+  else if (sign === '+') {
     printNum(data, data.num1 + data.num2)
   } 
-  else if (sign === 'subtract' || sign === '-') {
+  else if (sign === '-') {
     printNum(data, data.num1 - data.num2)
   } 
-  else if (sign === 'multiply' || sign === '*') {
+  else if (sign === '*') {
     printNum(data, data.num1 * data.num2)
   } 
-  else if (sign === 'divide' || sign === '/') {
+  else if (sign === '/') {
     printNum(data, data.num1 / data.num2)
   } 
-  else if (sign === 'modulo' || sign === '%') {
+  else if (sign === '%') {
     printNum(data, data.num1 % data.num2)
   } 
-  else if (sign === 'exponent' || sign === '**') {
+  else if (sign === '**') {
     printNum(data, data.num1 ** data.num2)
   } 
   else {
