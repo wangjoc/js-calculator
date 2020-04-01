@@ -116,40 +116,42 @@ function verifyNum(input) {
   return isNaN(input) || !input
 }
 
+function printNum(data, result) {
+  console.log(`${data.num1} ${data.op} ${data.num2} = ${result}`)
+}
+
 function calculator(data) {
   let result = 0
   let sign = String(data.op)
   sign = sign.toLowerCase()
   
   if (verifyNum(data.num1) || verifyNum(data.num1)) {
-    result = "Input provided is not a number"
+    console.log("Input provided is not a number")
   }
   else if (data.num2 === 0) {
-    result = "Cannot divide by zero"
+    console.log("Cannot divide by zero")
   }
   else if (sign === 'add' || sign === '+') {
-    result = data.num1 + data.num2
+    printNum(data, data.num1 + data.num2)
   } 
   else if (sign === 'subtract' || sign === '-') {
-    result = data.num1 - data.num2
+    printNum(data, data.num1 - data.num2)
   } 
   else if (sign === 'multiply' || sign === '*') {
-    result = data.num1 * data.num2
+    printNum(data, data.num1 * data.num2)
   } 
   else if (sign === 'divide' || sign === '/') {
-    result = data.num1 / data.num2
+    printNum(data, data.num1 / data.num2)
   } 
   else if (sign === 'modulo' || sign === '%') {
-    result = data.num1 % data.num2
+    printNum(data, data.num1 % data.num2)
   } 
   else if (sign === 'exponent' || sign === '**') {
-    result = data.num1 ** data.num2
+    printNum(data, data.num1 ** data.num2)
   } 
   else {
-    result = "Operator not recognized"
+    console.log("Operator not recognized")
   }
-
-  console.log(result)
 } 
 
 /// BASE CASE EXAMPLES ///
