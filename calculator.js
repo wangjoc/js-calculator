@@ -117,73 +117,76 @@ function verifyNum(input) {
 }
 
 function calculator(data) {
+  let result = 0
   let sign = String(data.op)
   sign = sign.toLowerCase()
   
   if (verifyNum(data.num1) || verifyNum(data.num1)) {
-    return "Input provided is not a number"
+    result = "Input provided is not a number"
   }
   else if (data.num2 === 0) {
-    return "Cannot divide by zero"
+    result = "Cannot divide by zero"
   }
   else if (sign === 'add' || sign === '+') {
-    return data.num1 + data.num2
+    result = data.num1 + data.num2
   } 
   else if (sign === 'subtract' || sign === '-') {
-    return data.num1 - data.num2
+    result = data.num1 - data.num2
   } 
   else if (sign === 'multiply' || sign === '*') {
-    return data.num1 * data.num2
+    result = data.num1 * data.num2
   } 
   else if (sign === 'divide' || sign === '/') {
-    return data.num1 / data.num2
+    result = data.num1 / data.num2
   } 
   else if (sign === 'modulo' || sign === '%') {
-    return data.num1 % data.num2
+    result = data.num1 % data.num2
   } 
   else if (sign === 'exponent' || sign === '**') {
-    return data.num1 ** data.num2
+    result = data.num1 ** data.num2
   } 
   else {
-    return "Operator not recognized"
+    result = "Operator not recognized"
   }
+
+  console.log(result)
 } 
 
 /// BASE CASE EXAMPLES ///
 
 console.log("*** ADDITION ***");
-console.log(calculator(exampleAdditionInput));
-console.log(calculator(exampleAdditionInputSign));
+calculator(exampleAdditionInput);
+calculator(exampleAdditionInputSign);
 console.log("*** SUBTRACTION ***");
-console.log(calculator(exampleSubtractInput));
-console.log(calculator(exampleSubtractInputSign));
+calculator(exampleSubtractInput);
+calculator(exampleSubtractInputSign);
 console.log("*** MULTIPLICATION ***");
-console.log(calculator(exampleMultiInput));
-console.log(calculator(exampleMultiInputSign));
+calculator(exampleMultiInput);
+calculator(exampleMultiInputSign);
 console.log("*** DIVIDE ***");
-console.log(calculator(exampleDivideInput));
-console.log(calculator(exampleDivideInputSign));
+calculator(exampleDivideInput);
+calculator(exampleDivideInputSign);
 console.log("*** MODULO ***");
-console.log(calculator(exampleModuloInput));
-console.log(calculator(exampleModuloInputSign));
+calculator(exampleModuloInput);
+calculator(exampleModuloInputSign);
 console.log("*** EXPONENT ***");
-console.log(calculator(exampleExponentInput));
-console.log(calculator(exampleExponentInputSign));
+calculator(exampleExponentInput);
+calculator(exampleExponentInputSign);
 
 
 /// EDGE CASE EXAMPLES ///
 
 console.log("*** MISSING NUMBER ***")
-console.log(calculator(exampleMissingNum));
+calculator(exampleMissingNum);
 console.log("*** MISSING OPERATOR ***")
-console.log(calculator(exampleMissingOp));
+calculator(exampleMissingOp);
 console.log("*** WRONG SIGN ***")
-console.log(calculator(exampleWrongSign));
+calculator(exampleWrongSign);
 console.log("*** ADDING NON-NUMBER ***")
-console.log(calculator(exampleOneNonNum));
-console.log(calculator(exampleTwoNonNum));
+calculator(exampleOneNonNum);
+calculator(exampleTwoNonNum);
 console.log("*** DIVIDE BY ZERO ***")
-console.log(calculator(exampleDivideByZero));
+calculator(exampleDivideByZero);
 
 console.log("*************************************");
 console.log("You can now enter in your own values to calculate:");
@@ -195,11 +198,11 @@ const prompt = require('prompt');
 const collectUserInput = function(error, promptInput) {
   console.log('This is the value of the promptInput variable that got passed in by prompt, after our prompt package collect user input', promptInput);
 
-  promptInput.num1 = Number(promptInput.num1)
-  promptInput.num2 = Number(promptInput.num2)
+  promptInput.num1 = Number(promptInput.num1);
+  promptInput.num2 = Number(promptInput.num2);
 
-  console.log("*** RESULT ***")
-  console.log(calculator(promptInput))
+  console.log("*** RESULT ***");
+  calculator(promptInput);
 }  
 
 
